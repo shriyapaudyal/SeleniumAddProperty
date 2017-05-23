@@ -13,11 +13,12 @@ public class AddPropertyClass {
 	public static void main(String[] args) throws InterruptedException {
 		System.setProperty("webdriver.gecko.driver","E:\\backup\\geckodriver.exe");
 		
+		
 			WebDriver driver = new FirefoxDriver();
 			
 			driver.get("http://lb25.braindigit.com/qa18/");
 
-
+			
 			driver.findElement(By.xpath("//a[contains(.,'Login')]")).click();
 			driver.findElement(By.id("modlgn-username")).clear();
 			driver.findElement(By.id("modlgn-username")).sendKeys("lina1");
@@ -41,7 +42,7 @@ public class AddPropertyClass {
 					Thread.sleep(9000);
 					
 					driver.findElement(By.xpath("html/body/div[1]/div[2]/section[2]/div[1]/div/div/a[contains(.,'New')]")).click() ;
-					Thread.sleep(5000);
+					Thread.sleep(9000);
 					
 					driver.findElement(By.id("title")).sendKeys("house selenium "+i);
 					
@@ -50,6 +51,9 @@ public class AddPropertyClass {
 					
 					driver.findElement(By.name("area")).sendKeys("250");
 					Thread.sleep(5000);			
+
+					Select purpose = new Select(driver.findElement(By.id("purpose_id")));
+					purpose.selectByVisibleText("Residential");
 					
 					driver.findElement(By.xpath(".//*[@id='exfBEDROOM_NUMBER']")).sendKeys("2");
 					driver.findElement(By.xpath(".//*[@id='exfBATHROOM_NUMBER']")).sendKeys("1");
